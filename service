@@ -1,0 +1,40 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://mtc.services.module.com/">
+   <SOAP-ENV:Body>
+      <ns1:GetAllSegmentosResponse>
+         <return>
+            <item>
+               <id>45</id>
+               <entidad>3060</entidad>
+               <locale>es</locale>
+               <root>https://www.cajaviva.es:8080/autonomos</root>
+               <nombre>Comercios/Autónomos</nombre>
+               <dispositivo>2</dispositivo>
+            </item>
+            <item>
+               <id>44</id>
+               <entidad>3060</entidad>
+               <locale>es</locale>
+               <root>https://www.cajaviva.es:8080/banca-privada</root>
+               <nombre>Banca Privada</nombre>
+               <dispositivo>2</dispositivo>
+            </item>
+            <item>
+               <id>46</id>
+               <entidad>3060</entidad>
+               <locale>es</locale>
+               <root>https://www.cajaviva.es:8080/empresas</root>
+               <nombre>Empresas</nombre>
+               <dispositivo>2</dispositivo>
+            </item>
+            <item>
+               <id>43</id>
+               <entidad>3060</entidad>
+               <locale>es</locale>
+               <root>https://www.cajaviva.es:8080/particulares</root>
+               <nombre>Particulares</nombre>
+               <dispositivo>2</dispositivo>
+            </item>
+         </return>
+      </ns1:GetAllSegmentosResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

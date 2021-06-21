@@ -1,0 +1,310 @@
+<?xml version= "1.0" ?>
+
+<wsdl:definitions name="PortalToolsService"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  targetNamespace="http://mtc.services.module.com/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:tns="http://mtc.services.module.com/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+
+    <xsd:documentation></xsd:documentation>
+
+    <wsdl:types>
+
+        <xsd:schema targetNamespace="http://mtc.services.module.com/">
+            
+            <xsd:complexType name="segmento">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:integer"></xsd:element>
+                    <xsd:element name="entidad" type="xsd:string"></xsd:element>
+                    <xsd:element name="locale" type="xsd:string"></xsd:element>
+                    <xsd:element name="root" type="xsd:string"></xsd:element>
+                    <xsd:element name="nombre" type="xsd:string"></xsd:element>
+                    <xsd:element name="dispositivo" type="xsd:integer"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name='segmentosList'>
+                <xsd:sequence>
+                    <xsd:element name="item" type="tns:segmento" minOccurs="0" maxOccurs="unbounded" nillable="true"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+                
+            <xsd:complexType name="user">
+                <xsd:sequence>
+                    <xsd:element name="name" type="xsd:string"></xsd:element>
+                    <xsd:element name="ouFqn" type="xsd:string"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name='resourceList'>
+                 <xsd:sequence>
+                    <xsd:element name="item" type="tns:resource" minOccurs="0" maxOccurs="unbounded" nillable="true"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="resource">
+                <xsd:sequence>
+                    <xsd:element name="rootPath" type="xsd:string"></xsd:element>
+                    <xsd:element name="title" type="xsd:string"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name='zonasList'>
+                 <xsd:sequence>
+                    <xsd:element name="item" type="tns:zona" minOccurs="0" maxOccurs="unbounded" nillable="true"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="zona">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:integer"></xsd:element>
+                    <xsd:element name="labelId" type="xsd:string"></xsd:element>
+                    <xsd:element name="locale" type="xsd:string"></xsd:element>
+                    <xsd:element name="resourceId" type="xsd:string"></xsd:element>
+                    <xsd:element name="typeId" type="xsd:integer"></xsd:element>
+                    <xsd:element name="width" type="xsd:integer"></xsd:element>
+                    <xsd:element name="height" type="xsd:integer"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+
+        </xsd:schema>
+    
+    </wsdl:types>
+
+    <!-- Servicio 3.1 -->
+    <wsdl:message name="GetAllSegmentos">
+        <wsdl:part name="idEntidad" type="xsd:string"></wsdl:part>
+    </wsdl:message>
+
+    <wsdl:message name="GetAllSegmentosResponse">
+        <wsdl:part name="return" type="tns:segmentosList"></wsdl:part>
+    </wsdl:message>
+
+    <!-- Mensajes Servicio 3.2 -->
+    <wsdl:message name="GetOnlineLink">
+        <wsdl:part name="rutaInterna" type="xsd:string"></wsdl:part>
+    </wsdl:message>
+
+    <wsdl:message name="GetOnlineLinkResponse">
+        <wsdl:part name="return" type="xsd:string"></wsdl:part>
+    </wsdl:message>
+
+    <!-- Mensajes Servicio 3.3 -->
+    <wsdl:message name="GetUserForEntity">
+        <wsdl:part name="idEntidad" type="xsd:string"></wsdl:part>
+        <wsdl:part name="dispositivo" type="xsd:integer"></wsdl:part>
+        <wsdl:part name="nombreUsuario" type="xsd:string"></wsdl:part>
+    </wsdl:message>
+
+    <wsdl:message name="GetUserForEntityResponse">
+        <wsdl:part name="return" type="tns:user"></wsdl:part>
+    </wsdl:message>
+
+    <!-- Mensajes Servicio 3.4 -->
+    <wsdl:message name="GetResourcesForUser">
+        <wsdl:part name="idEntidad" type="xsd:string"></wsdl:part>
+        <wsdl:part name="dispositivo" type="xsd:integer"></wsdl:part>
+        <wsdl:part name="nombreUsuario" type="xsd:string"></wsdl:part>
+    </wsdl:message>
+
+    <wsdl:message name="GetResourcesForUserResponse">
+        <wsdl:part name="return" type="tns:resourceList"></wsdl:part>
+    </wsdl:message>
+
+    <!-- Mensajes Servicio 3.5 -->
+    <wsdl:message name="GetZonas">
+        <wsdl:part name="idEntidad" type="xsd:string"></wsdl:part>
+        <wsdl:part name="dispositivo" type="xsd:integer"></wsdl:part>
+    </wsdl:message>
+
+    <wsdl:message name="GetZonasResponse">
+        <wsdl:part name="return" type="tns:zonasList"></wsdl:part>
+    </wsdl:message>
+
+    <!-- Mensajes Servicio 3.6 -->
+    <wsdl:message name="GetZonasByResourceId">
+        <wsdl:part name="resourceId" type="xsd:string"></wsdl:part>
+    </wsdl:message>
+
+    <wsdl:message name="GetZonasByResourceIdResponse">
+        <wsdl:part name="return" type="tns:zonasList"></wsdl:part>
+    </wsdl:message>
+
+    <!-- Mensajes Servicio 3.7 -->
+    <wsdl:message name="GetZonasBySegmentos">
+        <wsdl:part name="listaSegmentos" type="tns:segmentosList"></wsdl:part>
+    </wsdl:message>
+
+    <wsdl:message name="GetZonasBySegmentosResponse">
+        <wsdl:part name="return" type="tns:zonasList"></wsdl:part>
+    </wsdl:message>
+
+    <!-- Mensajes Servicio 3.8 -->
+    <wsdl:message name="GetSegmentosByPieza">
+        <wsdl:part name="idEntidad" type="xsd:string"></wsdl:part>
+        <wsdl:part name="idDispositivo" type="xsd:integer"></wsdl:part>
+        <wsdl:part name="type" type="xsd:string"></wsdl:part>
+        <wsdl:part name="width" type="xsd:integer"></wsdl:part>
+        <wsdl:part name="height" type="xsd:integer"></wsdl:part>
+        <wsdl:part name="modelCampaign" type="xsd:boolean"></wsdl:part>
+    </wsdl:message>
+
+    <wsdl:message name="GetSegmentosByPiezaResponse">
+        <wsdl:part name="return" type="tns:segmentosList"></wsdl:part>
+    </wsdl:message>
+
+
+    <!-- Operaciones -->
+    <wsdl:portType name="I_MainService">
+        
+        <!-- Servicio 3.1 -->
+        <wsdl:operation name="GetAllSegmentos">
+            <wsdl:input message="tns:GetAllSegmentos"/>
+            <wsdl:output message="tns:GetAllSegmentosResponse"/>
+        </wsdl:operation>
+
+        <!-- Servicio 3.2 -->
+        <wsdl:operation name="GetOnlineLink">
+            <wsdl:input message="tns:GetOnlineLink"/>
+            <wsdl:output message="tns:GetOnlineLinkResponse"/>
+        </wsdl:operation>
+
+        <!-- Servicio 3.3 -->
+        <wsdl:operation name="GetUserForEntity">
+            <wsdl:input message="tns:GetUserForEntity"/>
+            <wsdl:output message="tns:GetUserForEntityResponse"/>
+        </wsdl:operation>
+
+        <!-- Servicio 3.4 -->
+        <wsdl:operation name="GetResourcesForUser">
+            <wsdl:input message="tns:GetResourcesForUser"/>
+            <wsdl:output message="tns:GetResourcesForUserResponse"/>
+        </wsdl:operation>
+
+        <!-- Servicio 3.5 -->
+        <wsdl:operation name="GetZonas">
+            <wsdl:input message="tns:GetZonas"/>
+            <wsdl:output message="tns:GetZonasResponse"/>
+        </wsdl:operation>
+
+        <!-- Servicio 3.6 -->
+        <wsdl:operation name="GetZonasByResourceId">
+            <wsdl:input message="tns:GetZonasByResourceId"/>
+            <wsdl:output message="tns:GetZonasByResourceIdResponse"/>
+        </wsdl:operation>
+
+        <!-- Servicio 3.7 -->
+        <wsdl:operation name="GetZonasBySegmentos">
+            <wsdl:input message="tns:GetZonasBySegmentos"/>
+            <wsdl:output message="tns:GetZonasBySegmentosResponse"/>
+        </wsdl:operation>
+
+        <!-- Servicio 3.8 -->
+        <wsdl:operation name="GetSegmentosByPieza">
+            <wsdl:input message="tns:GetSegmentosByPieza"/>
+            <wsdl:output message="tns:GetSegmentosByPiezaResponse"/>
+        </wsdl:operation>
+
+    </wsdl:portType>
+
+    <wsdl:binding name="Library" type="tns:I_MainService">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        
+        <!-- Servicio 3.1 -->
+        <wsdl:operation name="GetAllSegmentos">
+            <soap:operation soapAction="https://www.cajaviva.es:8080/api/v1/cmis-ws"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <!-- Servicio 3.2 -->
+        <wsdl:operation name="GetOnlineLink">
+            <soap:operation soapAction="https://www.cajaviva.es:8080/api/v1/cmis-ws"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <!-- Servicio 3.3 -->
+        <wsdl:operation name="GetUserForEntity">
+            <soap:operation soapAction="https://www.cajaviva.es:8080/api/v1/cmis-ws"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <!-- Servicio 3.4 -->
+        <wsdl:operation name="GetResourcesForUser">
+            <soap:operation soapAction="https://www.cajaviva.es:8080/api/v1/cmis-ws"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <!-- Servicio 3.5 -->
+        <wsdl:operation name="GetZonas">
+            <soap:operation soapAction="https://www.cajaviva.es:8080/api/v1/cmis-ws"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <!-- Servicio 3.6 -->
+        <wsdl:operation name="GetZonasByResourceId">
+            <soap:operation soapAction="https://www.cajaviva.es:8080/api/v1/cmis-ws"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <!-- Servicio 3.7 -->
+        <wsdl:operation name="GetZonasBySegmentos">
+            <soap:operation soapAction="https://www.cajaviva.es:8080/api/v1/cmis-ws"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+         <!-- Servicio 3.8 -->
+        <wsdl:operation name="GetSegmentosByPieza">
+            <soap:operation soapAction="https://www.cajaviva.es:8080/api/v1/cmis-ws"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+    </wsdl:binding>
+
+    <wsdl:service name="PortalToolsService">
+        <wsdl:port binding="tns:Library" name="CMISLibrary">
+            <soap:address location="https://www.cajaviva.es:8080/api/v1/cmis-ws"/>
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>
