@@ -213,7 +213,7 @@
         
         <!-- Servicio 3.1 -->
         <wsdl:operation name="GetAllSegmentos">
-            <soap:operation soapAction="https://www.cajaviva.es:8080/api/v1/cmis-ws"/>
+            <soap:operation soapAction="https://raw.githubusercontent.com/abed-nego999/mockServices/master/service"/>
             <wsdl:input>
                 <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
             </wsdl:input>
@@ -224,7 +224,7 @@
 
         <!-- Servicio 3.2 -->
         <wsdl:operation name="GetOnlineLink">
-            <soap:operation soapAction="https://www.cajaviva.es:8080/api/v1/cmis-ws"/>
+            <soap:operation soapAction="https://raw.githubusercontent.com/abed-nego999/mockServices/master/service"/>
             <wsdl:input>
                 <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
             </wsdl:input>
@@ -235,7 +235,7 @@
 
         <!-- Servicio 3.3 -->
         <wsdl:operation name="GetUserForEntity">
-            <soap:operation soapAction="https://www.cajaviva.es:8080/api/v1/cmis-ws"/>
+            <soap:operation soapAction="https://raw.githubusercontent.com/abed-nego999/mockServices/master/service"/>
             <wsdl:input>
                 <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
             </wsdl:input>
@@ -246,7 +246,7 @@
 
         <!-- Servicio 3.4 -->
         <wsdl:operation name="GetResourcesForUser">
-            <soap:operation soapAction="https://www.cajaviva.es:8080/api/v1/cmis-ws"/>
+            <soap:operation soapAction="https://raw.githubusercontent.com/abed-nego999/mockServices/master/service"/>
             <wsdl:input>
                 <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
             </wsdl:input>
@@ -257,7 +257,7 @@
 
         <!-- Servicio 3.5 -->
         <wsdl:operation name="GetZonas">
-            <soap:operation soapAction="https://www.cajaviva.es:8080/api/v1/cmis-ws"/>
+            <soap:operation soapAction="https://raw.githubusercontent.com/abed-nego999/mockServices/master/service"/>
             <wsdl:input>
                 <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
             </wsdl:input>
@@ -268,7 +268,7 @@
 
         <!-- Servicio 3.6 -->
         <wsdl:operation name="GetZonasByResourceId">
-            <soap:operation soapAction="https://www.cajaviva.es:8080/api/v1/cmis-ws"/>
+            <soap:operation soapAction="https://raw.githubusercontent.com/abed-nego999/mockServices/master/service"/>
             <wsdl:input>
                 <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
             </wsdl:input>
@@ -279,7 +279,7 @@
 
         <!-- Servicio 3.7 -->
         <wsdl:operation name="GetZonasBySegmentos">
-            <soap:operation soapAction="https://www.cajaviva.es:8080/api/v1/cmis-ws"/>
+            <soap:operation soapAction="https://raw.githubusercontent.com/abed-nego999/mockServices/master/service"/>
             <wsdl:input>
                 <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
             </wsdl:input>
@@ -290,7 +290,7 @@
 
          <!-- Servicio 3.8 -->
         <wsdl:operation name="GetSegmentosByPieza">
-            <soap:operation soapAction="https://www.cajaviva.es:8080/api/v1/cmis-ws"/>
+            <soap:operation soapAction="https://raw.githubusercontent.com/abed-nego999/mockServices/master/service"/>
             <wsdl:input>
                 <soap:body use="literal" namespace="http://mtc.services.module.com/"/>
             </wsdl:input>
@@ -303,7 +303,7 @@
 
     <wsdl:service name="PortalToolsService">
         <wsdl:port binding="tns:Library" name="CMISLibrary">
-            <soap:address location="https://www.cajaviva.es:8080/api/v1/cmis-ws"/>
+            <soap:address location="https://raw.githubusercontent.com/abed-nego999/mockServices/master/service"/>
         </wsdl:port>
     </wsdl:service>
 
